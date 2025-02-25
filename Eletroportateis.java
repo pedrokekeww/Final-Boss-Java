@@ -1,29 +1,20 @@
-package Projeto;
-public class Eletroportateis extends Eletronico {
- public double tempo; 	// Em horas
-	public double energia;
-	Eletroportateis(String nome, String modelo, double potencia, double tempo){
-		super(nome, modelo, potencia);
-		this.tempo = tempo;
-	}
-      
-	@Override
-	public void calcEnergia() {
-		energia = (potencia/1000) * tempo;
-	}
-        @Override
-	public double calcEnergia7() {
-		return energia * 7;
-	}
-        @Override
-	public double calcEnergia30() {
-		return energia * 30;
-	}
-       @Override
-	public double calcEnergia365() {
-		return energia * 365;
-	}
-}
+package br.com.projeto.calc3000;
 
+//Eletroportátil herda de Aparelho e implementa TipoAparelho
+public class Eletroportatil extends Aparelho implements TipoAparelho {
+ public Eletroportatil() {}
 
+ public Eletroportatil(double potencia, double tempo) {
+     super(potencia, tempo);
+ }
+
+ @Override
+ public double calcularCusto() {
+     return (getPotencia() * getTempo() / 1000) * PRECO_KWH * 1.1; // Taxa extra de 10% para eletroportáteis
+ }
+
+ @Override
+ public String getTipo() {
+     return "Eletroportátil";
+ }
 }
