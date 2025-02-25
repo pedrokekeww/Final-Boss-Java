@@ -1,23 +1,20 @@
-package Projeto;
+package br.com.projeto.calc3000;
 
-public class Eletrodomestico extends Eletronico {
-	public double Tempo; 	// Em horas
-	public double energia;
-	public Eletrodomestico (String Name,String Modelo, double Potencia, double Tempo) {
-		super(Name, Modelo, Potencia);
-		this.Tempo = Tempo;
-	} 
-	@Override
-	public void calcEnergia() {
-		energia = Potencia * Tempo;
-	}
-	public double calcEnergia7() {
-		return energia * 7;
-	}
-	public double calcEnergia30() {
-		return energia * 30;
-	}
-	public double calcEnergia365() {
-		return energia * 365;
-	}
+//Eletrodoméstico herda de Aparelho e implementa TipoAparelho
+public class Eletrodomestico extends Aparelho implements TipoAparelho {
+ public Eletrodomestico() {}
+
+ public Eletrodomestico(double potencia, double tempo) {
+     super(potencia, tempo);
+ }
+
+ @Override
+ public double calcularCusto() {
+     return (getPotencia() * getTempo() / 1000) * PRECO_KWH;
+ }
+
+ @Override
+ public String getTipo() {
+     return "Eletrodoméstico";
+ }
 }
