@@ -1,5 +1,5 @@
-package br.com.projeto.calc3000;
+package br.com.poo.projetoFinal.calculadoraDeEnergia;
 
 public interface TipoAparelho {
-    String getTipo();
+	    String getTipo(); // Metódo para ver o tipo de Aparelho
 }
